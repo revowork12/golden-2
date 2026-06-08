@@ -30,14 +30,14 @@ export default function HeroSection({ wa }) {
             href={wa("Hi Golden Furniture, I'm interested in your institutional furniture solutions.")}
             target="_blank"
             rel="noopener noreferrer"
-            className="btn-primary !px-10 !py-5 !text-base"
+            className="btn-primary !px-8 !py-3.5 !text-sm"
           >
             Get a Free Consultation
             <span className="w-7 h-7 rounded-full bg-navy/15 flex items-center justify-center text-sm transition-transform duration-300 group-hover:translate-x-1">⟶</span>
           </a>
           <a
             href="#solutions"
-            className="inline-flex items-center gap-2 px-10 py-5 rounded-full border border-white/20 text-white font-semibold text-base uppercase tracking-wide transition-all duration-300 bg-white/5 backdrop-blur-[36px] saturate-125 hover:bg-gold hover:text-slate hover:border-gold hover:backdrop-blur-[36px]"
+            className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full border border-white/25 text-white font-semibold text-sm uppercase tracking-wide transition-all duration-300 bg-white/10 backdrop-blur-[44px] saturate-150 shadow-lg shadow-white/5 hover:bg-gold hover:text-slate hover:border-gold hover:backdrop-blur-[44px]"
           >
             Explore Solutions
           </a>

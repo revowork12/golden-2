@@ -45,7 +45,7 @@ function App() {
 
   return (
     <>
-      <Header wa={wa} />
+      <Header wa={wa} showSticky={showSticky} />
       <main>
         <HeroSection wa={wa} />
         <AboutGolden />

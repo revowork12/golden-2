@@ -1,6 +1,20 @@
+import { useState, useEffect } from 'react'
+
 export default function WhatsAppSticky({ wa, hidden }) {
+  const [pastHero, setPastHero] = useState(false)
+
+  useEffect(() => {
+    const onScroll = () => {
+      const heroEl = document.getElementById('home')
+      setPastHero(heroEl ? window.scrollY + window.innerHeight > heroEl.offsetTop + heroEl.offsetHeight + 50 : false)
+    }
+    window.addEventListener('scroll', onScroll, { passive: true })
+    onScroll()
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+
   return (
-    <div className={`fixed bottom-0 left-0 right-0 z-40 bg-navy px-6 py-3 shadow-lg shadow-black/20 transition-transform duration-400 ${hidden ? 'translate-y-full' : 'translate-y-0'} md:hidden`}>
+    <div className={`fixed bottom-0 left-0 right-0 z-40 bg-navy px-6 py-3 shadow-lg shadow-black/20 transition-transform duration-400 ${pastHero && !hidden ? 'translate-y-0' : 'translate-y-full'} md:hidden`}>
       <a
         href={wa("Hi Golden Furniture, I'm interested in your solutions.")}
         target="_blank"

@@ -8,7 +8,7 @@ const links = [
   { label: 'Contact', href: '#contact' },
 ]
 
-export default function Header({ wa }) {
+export default function Header({ wa, showSticky = true }) {
   const [scrolled, setScrolled] = useState(false)
   const [pastHero, setPastHero] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
@@ -59,7 +59,7 @@ export default function Header({ wa }) {
           href={wa("Hi Golden Furniture, I'm interested in your solutions.")}
           target="_blank"
           rel="noopener noreferrer"
-          className={`hidden md:inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-gold text-navy text-[11px] font-semibold uppercase tracking-[1px] transition-all duration-500 hover:scale-[1.04] hover:bg-gold-light ${pastHero ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-3 pointer-events-none'}`}
+          className={`hidden md:inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-gold text-navy text-[11px] font-semibold uppercase tracking-[1px] transition-all duration-500 hover:scale-[1.04] hover:bg-gold-light ${pastHero && showSticky ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-3 pointer-events-none'}`}
         >
           Enquire Now
           <span className="w-[18px] h-[18px] rounded-full bg-navy/15 flex items-center justify-center text-[10px] transition-transform duration-300 group-hover:translate-x-[2px]">⟶</span>
@@ -156,20 +156,6 @@ export default function Header({ wa }) {
         </a>
       </div>
     </header>
-
-    <div className={`fixed bottom-0 left-0 right-0 z-40 md:hidden transition-all duration-500 ${pastHero ? 'translate-y-0' : 'translate-y-full'}`}>
-      <div className="px-4 pb-5 pt-2 bg-gradient-to-t from-navy via-navy/95 to-transparent">
-        <a
-          href={wa("Hi Golden Furniture, I'm interested in your solutions.")}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center justify-center gap-2 w-full px-6 py-3.5 rounded-full bg-gold text-navy text-sm font-semibold uppercase tracking-[1px] transition-all duration-300 hover:bg-gold-light"
-        >
-          Enquire Now
-          <span className="w-[18px] h-[18px] rounded-full bg-navy/15 flex items-center justify-center text-[10px]">⟶</span>
-        </a>
-      </div>
-    </div>
     </>
   )
 }
