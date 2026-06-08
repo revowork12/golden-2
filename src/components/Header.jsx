@@ -17,7 +17,7 @@ export default function Header({ wa, showSticky = true }) {
     const onScroll = () => {
       setScrolled(window.scrollY > 50)
       const heroEl = document.getElementById('home')
-      setPastHero(heroEl ? window.scrollY + window.innerHeight > heroEl.offsetTop + heroEl.offsetHeight + 50 : false)
+      setPastHero(heroEl ? window.scrollY >= heroEl.offsetTop + heroEl.offsetHeight : false)
     }
     window.addEventListener('scroll', onScroll, { passive: true })
     onScroll()

@@ -6,7 +6,7 @@ export default function WhatsAppSticky({ wa, hidden }) {
   useEffect(() => {
     const onScroll = () => {
       const heroEl = document.getElementById('home')
-      setPastHero(heroEl ? window.scrollY + window.innerHeight > heroEl.offsetTop + heroEl.offsetHeight + 50 : false)
+      setPastHero(heroEl ? window.scrollY >= heroEl.offsetTop + heroEl.offsetHeight : false)
     }
     window.addEventListener('scroll', onScroll, { passive: true })
     onScroll()
