@@ -17,15 +17,15 @@ export default function AboutGolden() {
             <div className="flex flex-wrap gap-12">
               <div>
                 <div className="font-display text-4xl font-bold text-gold"><AnimatedCounter value={10} suffix="+" /></div>
-                <div className="text-slate/50 text-sm uppercase tracking-[2px] font-medium mt-1">Years of Excellence</div>
+                <div className="text-black/70 text-sm uppercase tracking-[2px] font-medium mt-1">Years of Excellence</div>
               </div>
               <div>
                 <div className="font-display text-4xl font-bold text-gold"><AnimatedCounter value={500} suffix="+" duration={2500} /></div>
-                <div className="text-slate/50 text-sm uppercase tracking-[2px] font-medium mt-1">Institutions Served</div>
+                <div className="text-black/70 text-sm uppercase tracking-[2px] font-medium mt-1">Institutions Served</div>
               </div>
               <div>
                 <div className="font-display text-4xl font-bold text-gold"><AnimatedCounter value={50} suffix="K+" duration={3000} /></div>
-                <div className="text-slate/50 text-sm uppercase tracking-[2px] font-medium mt-1">Seats Installed</div>
+                <div className="text-black/70 text-sm uppercase tracking-[2px] font-medium mt-1">Seats Installed</div>
               </div>
             </div>
           </div>
