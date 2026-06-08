@@ -84,6 +84,16 @@
   .reveal-delay-2 { transition-delay: 0.2s; }
   .reveal-delay-3 { transition-delay: 0.3s; }
   .reveal-delay-4 { transition-delay: 0.4s; }
+
+  .hero-reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    animation: heroFadeIn 0.8s var(--ease-spring) forwards;
+  }
+  .hero-delay-1 { animation-delay: 2s; }
+  .hero-delay-2 { animation-delay: 2.15s; }
+  .hero-delay-3 { animation-delay: 2.3s; }
+  .hero-delay-4 { animation-delay: 2.45s; }
 }
 
 @layer utilities {
@@ -125,6 +135,10 @@
 }
 .gallery-slide-img-wrap:hover {
   box-shadow: 0 36px 72px -12px rgba(30,29,25,0.25), 0 12px 32px -4px rgba(212,160,23,0.15);
+}
+
+@keyframes heroFadeIn {
+  to { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes scrollBounce {

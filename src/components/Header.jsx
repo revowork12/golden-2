@@ -10,10 +10,14 @@ const links = [
 
 export default function Header({ wa }) {
   const [scrolled, setScrolled] = useState(false)
+  const [pastHero, setPastHero] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 50)
+    const onScroll = () => {
+      setScrolled(window.scrollY > 50)
+      setPastHero(window.scrollY > window.innerHeight * 0.9)
+    }
     window.addEventListener('scroll', onScroll, { passive: true })
     onScroll()
     return () => window.removeEventListener('scroll', onScroll)
@@ -49,11 +53,37 @@ export default function Header({ wa }) {
           ))}
         </nav>
 
+        <div className={`hidden md:flex items-center gap-2 transition-all duration-500 ${pastHero ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-3 pointer-events-none'}`}>
+          <a
+            href="https://www.instagram.com/goldenfurniture243/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-white/70 hover:text-gold hover:bg-gold/15 transition-all duration-300"
+            aria-label="Instagram"
+          >
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="1.5">
+              <rect x="3" y="3" width="18" height="18" rx="5" ry="5" />
+              <circle cx="12" cy="12" r="4.5" />
+              <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
+            </svg>
+          </a>
+          <a
+            href="https://www.facebook.com/share/r/1Kw2quHCvN/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-white/70 hover:text-gold hover:bg-gold/15 transition-all duration-300"
+            aria-label="Facebook"
+          >
+            <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+            </svg>
+          </a>
+        </div>
         <a
           href={wa("Hi Golden Furniture, I'm interested in your solutions.")}
           target="_blank"
           rel="noopener noreferrer"
-          className="hidden md:inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-gold text-navy text-[11px] font-semibold uppercase tracking-[1px] transition-all duration-300 hover:scale-[1.04] hover:bg-gold-light"
+          className={`hidden md:inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-gold text-navy text-[11px] font-semibold uppercase tracking-[1px] transition-all duration-500 hover:scale-[1.04] hover:bg-gold-light ${pastHero ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-3 pointer-events-none'}`}
         >
           Enquire Now
           <span className="w-[18px] h-[18px] rounded-full bg-navy/15 flex items-center justify-center text-[10px] transition-transform duration-300 group-hover:translate-x-[2px]">⟶</span>

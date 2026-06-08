@@ -23,7 +23,7 @@ export default function Footer() {
         <div>
           <h5 className="text-xs font-semibold uppercase tracking-[2px] text-white/30 mb-4">Contact</h5>
           <a href="mailto:hello@goldenfurniture.in" className="block text-sm text-white/55 hover:text-gold mb-2.5 transition-colors">hello@goldenfurniture.in</a>
-          <a href="tel:+918139887069" className="block text-sm text-white/55 hover:text-gold mb-2.5 transition-colors">+91 81398 87069</a>
+          <a href="tel:+916238663009" className="block text-sm text-white/55 hover:text-gold mb-2.5 transition-colors">+91 62386 63009</a>
           <p className="text-sm text-white/40 mt-1">India</p>
         </div>
       </div>

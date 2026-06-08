@@ -21,7 +21,7 @@ const Contact = forwardRef(({ wa }, ref) => {
                 <div>
                   <p className="text-white/70 text-sm font-medium">WhatsApp / Call</p>
                   <a href={wa("Hi Golden Furniture, I'm interested in your solutions.")} target="_blank" rel="noopener noreferrer" className="text-gold text-sm hover:underline">
-                    +91 81398 87069
+                    +91 62386 63009
                   </a>
                 </div>
               </div>

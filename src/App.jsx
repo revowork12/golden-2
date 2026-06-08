@@ -16,7 +16,7 @@ import Contact from './components/Contact'
 import Footer from './components/Footer'
 import WhatsAppSticky from './components/WhatsAppSticky'
 
-const WHATSAPP_NUMBER = '918139887069'
+const WHATSAPP_NUMBER = '916238663009'
 const wa = (msg) => `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`
 
 function App() {
