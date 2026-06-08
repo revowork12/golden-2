@@ -16,7 +16,7 @@ export default function Header({ wa }) {
   useEffect(() => {
     const onScroll = () => {
       setScrolled(window.scrollY > 50)
-      setPastHero(window.scrollY > window.innerHeight * 0.9)
+      setPastHero(window.scrollY > window.innerHeight + 50)
     }
     window.addEventListener('scroll', onScroll, { passive: true })
     onScroll()
@@ -29,6 +29,7 @@ export default function Header({ wa }) {
   }, [menuOpen])
 
   return (
+    <>
     <header className={`fixed top-0 left-0 right-0 z-50 flex justify-center px-6 pt-4 md:pt-5 transition-all duration-500 ${scrolled ? 'pt-2 md:pt-3' : ''}`}>
       <div className={`
         flex items-center justify-between w-full max-w-6xl px-6 h-[72px] rounded-full
@@ -36,8 +37,9 @@ export default function Header({ wa }) {
         transition-all duration-500
         ${scrolled ? 'bg-navy/20 backdrop-blur-[44px] shadow-lg shadow-black/10' : ''}
       `}>
-        <a href="#home" className="flex items-center gap-2">
-          <span className="text-gold font-display text-xl font-bold tracking-tight">Golden</span>
+        <a href="#home" className="flex items-center gap-1.5 sm:gap-2">
+          <span className="text-gold font-display text-lg sm:text-xl font-bold tracking-tight">Golden</span>
+          <span className="text-white/70 font-body text-[9px] sm:hidden leading-[1.1] uppercase tracking-[0.5px]">furnitures &<br />appliances</span>
           <span className="text-white/80 font-body text-sm font-light hidden sm:inline">Furniture</span>
         </a>
 
@@ -53,32 +55,6 @@ export default function Header({ wa }) {
           ))}
         </nav>
 
-        <div className={`hidden md:flex items-center gap-2 transition-all duration-500 ${pastHero ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-3 pointer-events-none'}`}>
-          <a
-            href="https://www.instagram.com/goldenfurniture243/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-white/70 hover:text-gold hover:bg-gold/15 transition-all duration-300"
-            aria-label="Instagram"
-          >
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="1.5">
-              <rect x="3" y="3" width="18" height="18" rx="5" ry="5" />
-              <circle cx="12" cy="12" r="4.5" />
-              <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
-            </svg>
-          </a>
-          <a
-            href="https://www.facebook.com/share/r/1Kw2quHCvN/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-white/70 hover:text-gold hover:bg-gold/15 transition-all duration-300"
-            aria-label="Facebook"
-          >
-            <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
-            </svg>
-          </a>
-        </div>
         <a
           href={wa("Hi Golden Furniture, I'm interested in your solutions.")}
           target="_blank"
@@ -89,7 +65,32 @@ export default function Header({ wa }) {
           <span className="w-[18px] h-[18px] rounded-full bg-navy/15 flex items-center justify-center text-[10px] transition-transform duration-300 group-hover:translate-x-[2px]">⟶</span>
         </a>
 
-        <button
+        <div className="flex items-center gap-0.5 md:gap-2">
+          <a
+            href="https://www.instagram.com/goldenfurniture243/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-7 h-7 md:w-8 md:h-8 rounded-full bg-white/10 flex items-center justify-center text-white/70 hover:text-gold hover:bg-gold/15 transition-all duration-300"
+            aria-label="Instagram"
+          >
+            <svg className="w-3.5 h-3.5 md:w-4 md:h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="1.5">
+              <rect x="3" y="3" width="18" height="18" rx="5" ry="5" />
+              <circle cx="12" cy="12" r="4.5" />
+              <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
+            </svg>
+          </a>
+          <a
+            href="https://www.facebook.com/share/r/1Kw2quHCvN/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-7 h-7 md:w-8 md:h-8 rounded-full bg-white/10 flex items-center justify-center text-white/70 hover:text-gold hover:bg-gold/15 transition-all duration-300"
+            aria-label="Facebook"
+          >
+            <svg className="w-3.5 h-3.5 md:w-4 md:h-4" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+            </svg>
+          </a>
+          <button
           className={`flex lg:hidden flex-col justify-center w-9 h-9 cursor-pointer relative z-50 ${menuOpen ? 'active' : ''}`}
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label={menuOpen ? 'Close menu' : 'Open menu'}
@@ -99,6 +100,7 @@ export default function Header({ wa }) {
           <span className={`block w-5 h-[1.5px] bg-white mx-auto transition-all duration-350 ${menuOpen ? 'opacity-0 scale-x-0' : 'mb-[3px]'}`} />
           <span className={`block w-5 h-[1.5px] bg-white mx-auto transition-all duration-350 ${menuOpen ? '-translate-y-[4.5px] -rotate-45' : ''}`} />
         </button>
+        </div>
       </div>
 
       <div className={`fixed inset-0 z-40 bg-navy/96 backdrop-blur-[40px] flex flex-col items-center justify-center gap-12 transition-all duration-500 ${menuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}>
@@ -143,5 +145,20 @@ export default function Header({ wa }) {
         </a>
       </div>
     </header>
+
+    <div className={`fixed bottom-0 left-0 right-0 z-40 md:hidden transition-all duration-500 ${pastHero ? 'translate-y-0' : 'translate-y-full'}`}>
+      <div className="px-4 pb-5 pt-2 bg-gradient-to-t from-navy via-navy/95 to-transparent">
+        <a
+          href={wa("Hi Golden Furniture, I'm interested in your solutions.")}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center justify-center gap-2 w-full px-6 py-3.5 rounded-full bg-gold text-navy text-sm font-semibold uppercase tracking-[1px] transition-all duration-300 hover:bg-gold-light"
+        >
+          Enquire Now
+          <span className="w-[18px] h-[18px] rounded-full bg-navy/15 flex items-center justify-center text-[10px]">⟶</span>
+        </a>
+      </div>
+    </div>
+    </>
   )
 }
